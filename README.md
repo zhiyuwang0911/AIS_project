@@ -10,5 +10,5 @@ This course recommendation system is aming to providing the courses based on the
 # Where to start
 The latest version of dara processing, hyperparameter tuning, model training and evaludation and risk management is under: [here](https://github.com/zhiyuwang0911/AIS_project/blob/main/Zhiyu/Playground_Risk_Trustworthy_HCI.ipynb)
 
-#Deployment
+# Deployment
 The AI system deployment file with streamlit is under: [here](https://github.com/zhiyuwang0911/AIS_project/blob/main/Zhiyu/app.py)

@@ -1,5 +1,5 @@
 # AIS_project
-This repo is for developing a AI-assisted course recommendation system developed by Zhiyu Wang and Praneeth 
+This repo is a AI-assisted course recommendation system called LEARN-MATCH developed by Zhiyu Wang and Praneeth 
 
 # Dataset
 Udemy (trimmed based on dataset from Kaggle)

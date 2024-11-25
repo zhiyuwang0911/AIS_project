@@ -8,7 +8,7 @@ Udemy (trimmed based on dataset from Kaggle)
 This course recommendation system is aming to providing the courses based on the user interest, which is powered by K-means clustering algorithm.
 
 # Where to start
-The latest version of dara processing, model training and valudation and risk management is under: [here](https://github.com/zhiyuwang0911/AIS_project/blob/main/Zhiyu/Playground_Risk_Trustworthy_HCI.ipynb)
+The latest version of dara processing, hyperparameter tuning, model training and evaludation and risk management is under: [here](https://github.com/zhiyuwang0911/AIS_project/blob/main/Zhiyu/Playground_Risk_Trustworthy_HCI.ipynb)
 
 #Deployment
 The AI system deployment file with streamlit is under: [here](https://github.com/zhiyuwang0911/AIS_project/blob/main/Zhiyu/app.py)

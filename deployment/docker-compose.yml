@@ -1,0 +1,108 @@
+# version: '3.7'
+# services:
+#   streamlit-app:
+#     build:
+#       context: .
+#     ports:
+#       - "8501:8501"
+#     volumes:
+#       - ./app:/app
+#     networks:
+#       - monitor-net
+
+#   grafana:
+#   image: grafana/grafana
+#   container_name: grafana
+#   ports:
+#     - "3000:3000"
+#   environment:
+#     - GF_SECURITY_ADMIN_PASSWORD=admin
+#   volumes:
+#     - grafana_data:/var/lib/grafana
+
+#   prometheus:
+#     image: prom/prometheus
+#     container_name: prometheus
+#     ports:
+#       - "9090:9090"
+#     volumes:
+#       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+# volumes:
+#   grafana_data:
+
+# version: '3.7'
+
+# services:
+#   ais_project_1:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: ais_project_1  # Correct placement
+#     ports:
+#       - "8502:8501"
+#       - "8000:8000"
+#     volumes:
+#       - ./app:/app
+
+#   prometheus:
+#     image: prom/prometheus
+#     container_name: prometheus  # Correct placement
+#     ports:
+#       - "9090:9090"
+#     volumes:
+#       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+#   grafana:
+#     image: grafana/grafana
+#     container_name: grafana  # Correct placement
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - GF_SECURITY_ADMIN_PASSWORD=admin
+#     volumes:
+#       - grafana_data:/var/lib/grafana
+
+# volumes:
+#   grafana_data:
+version: '3.7'
+
+services:
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ais_project_2
+    ports:
+      - "8502:8502"  # Streamlit app exposed on port 8501
+    volumes:
+      - ./app:/app
+    depends_on:
+      - prometheus
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"  # Prometheus web UI exposed on port 9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    depends_on:
+      - streamlit
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"  # Grafana web UI exposed on port 3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - streamlit
+
+volumes:
+  grafana_data:

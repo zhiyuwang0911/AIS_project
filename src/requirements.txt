@@ -1,6 +1,0 @@
-streamlit
-pandas
-numpy
-scikit-learn
-joblib
-prometheus_client
